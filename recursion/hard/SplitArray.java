@@ -10,8 +10,8 @@ public class SplitArray {
 
     public static boolean splitArray(int[] nums, int sumLeft, int sumRight, int position) {
         
-        System.out.printf("posicion %d; suma izquierda %d, suma derecha %d%n", position, sumLeft, sumRight);
-        
+        System.out.printf("position %d; sum left-array %d, sum right-array %d%n", position, sumLeft, sumRight);
+
         if (position == nums.length) {
             if (sumLeft == sumRight) {
                 return true;
@@ -21,11 +21,11 @@ public class SplitArray {
 
         }
 
-        boolean sumarIzquierda = splitArray(nums, sumLeft+nums[position], sumRight, position+1);
-        if (sumarIzquierda) return true;
+        boolean sumToLeft = splitArray(nums, sumLeft+nums[position], sumRight, position+1);
+        if (sumToLeft) return true;
 
-        boolean sumarDerecha = splitArray(nums, sumLeft, sumRight+nums[position], position+1);
-        if (sumarDerecha) return true;
+        boolean sumToRight = splitArray(nums, sumLeft, sumRight+nums[position], position+1);
+        if (sumToRight) return true;
 
         return false;   
     }
